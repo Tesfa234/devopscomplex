@@ -3,10 +3,10 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
+// Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// API endpoint for dashboard data (can be dynamic later)
+// API endpoint for dashboard data
 app.get('/api/status', (req, res) => {
   res.json({
     pipeline: '✅ Passing',
@@ -17,12 +17,10 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// Health check endpoint (kept for monitoring)
+// Health check
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-// Start server
-app.listen(port, () => {
-  console.log(`Dashboard running at http://localhost:${port}`);
-});
+// Export app for testing and for server startup
+module.exports = app;

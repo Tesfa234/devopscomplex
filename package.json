@@ -4,7 +4,7 @@
   "description": "Simple app for DevOps CI/CD demo",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "jest --forceExit"
   },
   "dependencies": {
